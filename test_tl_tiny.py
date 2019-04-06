@@ -175,7 +175,7 @@ class YOLO(object):
 def detect_img(yolo):
     filenames = 'test.txt'
     with open(filenames) as lines:
-        for i, line in enumerate(lines, 1):
+        for i, line in enumerate(lines):
             line = line.rstrip('\n')
             try:
                 image = Image.open(line)
@@ -185,7 +185,7 @@ def detect_img(yolo):
             else:
                 r_image = yolo.detect_image(image)
                 # print(type(r_image))
-                r_image.save('{0:03d}'.format(i) + '.jpg')
+                r_image.save('output_images/frame{0:04d}'.format(i) + '.jpg')
                 # r_image.show()
     yolo.close_session()
 
